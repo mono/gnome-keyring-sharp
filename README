@@ -1,0 +1,24 @@
+Last updated: 2006-07-27
+
+README for google-sharp
+---------------------------
+Google-sharp is a .NET library that lets you log in to Google services and use
+them programatically. Currently only Picasaweb is supported.
+
+When connected to a picasaweb account, you can create albums and browse,
+download or upload pictures.
+
+* Directory Layout
+------------------
+
+	docs/
+		Monodoc documentation for the library
+
+	sample/
+		Sample programs using the library
+
+	src/
+		Source files for the library
+
+Maintainer: gonzalo@ximian.com
+

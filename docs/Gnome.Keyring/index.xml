@@ -1,0 +1,32 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="Gnome.Keyring" Version="0.1.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCompany(Company="Novell, Inc.")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright(Copyright="(c) 2006 Novell, Inc.")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription(Description="")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle(Title="Gnome.Keyring")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="Gnome.Keyring">
+      <Type Name="ItemData" />
+      <Type Name="KeyringException" />
+      <Type Name="NetItemData" />
+      <Type Name="Ring" />
+      <Type Name="ItemType" />
+    </Namespace>
+  </Types>
+  <Title>Gnome.Keyring</Title>
+</Overview>
