@@ -1,12 +1,12 @@
-Last updated: 2006-07-27
+Last updated: 2006-08-01
 
-README for google-sharp
+README for gnome-keyring-sharp
 ---------------------------
-Google-sharp is a .NET library that lets you log in to Google services and use
-them programatically. Currently only Picasaweb is supported.
+gnome-keyring-sharp is a fully managed implementation if libgnome-keyring.
 
-When connected to a picasaweb account, you can create albums and browse,
-download or upload pictures.
+When the gnome-keyring-daemon is running, you can use this to retrive/store
+confidential information such as passwords, notes or network services user
+information.
 
 * Directory Layout
 ------------------
