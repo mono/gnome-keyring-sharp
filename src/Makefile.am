@@ -14,10 +14,12 @@ gnomekeyring_references=
 
 gnomekeyring_sources  = \
 			Gnome.Keyring/AttributeType.cs \
+			Gnome.Keyring/GenericItemData.cs \
 			Gnome.Keyring/ItemData.cs \
 			Gnome.Keyring/ItemType.cs \
 			Gnome.Keyring/KeyringException.cs \
 			Gnome.Keyring/NetItemData.cs \
+			Gnome.Keyring/NoteItemData.cs \
 			Gnome.Keyring/Operation.cs \
 			Gnome.Keyring/RequestMessage.cs \
 			Gnome.Keyring/ResponseMessage.cs \

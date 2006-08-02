@@ -39,7 +39,11 @@ namespace Gnome.Keyring {
 		public string AuthType;
 		public int Port;
 
-		internal void SetValuesFromAttributes ()
+		public override ItemType Type {
+			get { return ItemType.NetworkPassword; }
+		}
+
+		internal override void SetValuesFromAttributes ()
 		{
 			Hashtable tbl = Attributes;
 			if (tbl == null)
@@ -53,6 +57,8 @@ namespace Gnome.Keyring {
 			AuthType = (string) tbl ["authtype"];
 			if (tbl ["port"] != null)
 				Port = (int) tbl ["port"];
+
+			base.SetValuesFromAttributes ();
 		}
 	}
 }

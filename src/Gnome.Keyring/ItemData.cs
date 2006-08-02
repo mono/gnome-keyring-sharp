@@ -32,11 +32,13 @@ using System.Collections;
 using System.Text;
 
 namespace Gnome.Keyring {
-	public class ItemData {
+	public abstract class ItemData {
 		public string Keyring;
 		public int ItemID;
 		public string Secret;
 		public Hashtable Attributes;
+
+		public abstract ItemType Type { get; }
 
 		public override string ToString ()
 		{
@@ -44,6 +46,24 @@ namespace Gnome.Keyring {
 			foreach (string key in Attributes.Keys)
 				sb.AppendFormat ("{0}: {1}\n", key, Attributes [key]);
 			return String.Format ("Keyring: {0} ItemID: {1} Secret: {2}\n{3}", Keyring, ItemID, Secret, sb.ToString ());
+		}
+
+		internal virtual void SetValuesFromAttributes ()
+		{
+		}
+
+		internal static ItemData GetInstanceFromItemType (ItemType type)
+		{
+			if (type == ItemType.GenericSecret)
+				return new GenericItemData ();
+
+			if (type == ItemType.NetworkPassword)
+				return new NetItemData ();
+
+			if (type == ItemType.Note)
+				return new NoteItemData ();
+
+			throw new ArgumentException ("Unknown type: " + type, "type");
 		}
 	}
 }

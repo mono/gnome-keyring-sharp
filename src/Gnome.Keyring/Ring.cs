@@ -34,6 +34,7 @@ using System.Net;
 using System.Net.Sockets;
 
 using Mono.Unix;
+using Mono.Unix.Native;
 
 namespace Gnome.Keyring {
 	public class Ring {
@@ -212,7 +213,7 @@ namespace Gnome.Keyring {
 			ResponseMessage resp = SendRequest (req.Stream);
 			ArrayList list = new ArrayList ();
 			while (resp.DataAvailable) {
-				NetItemData found = new NetItemData ();
+				ItemData found = ItemData.GetInstanceFromItemType (type);
 				found.Keyring = resp.GetString ();
 				found.ItemID = resp.GetInt32 ();
 				found.Secret = resp.GetString ();
@@ -245,7 +246,6 @@ namespace Gnome.Keyring {
 
 			ResponseMessage resp = SendRequest (req.Stream);
 			ArrayList list = new ArrayList ();
-			Console.WriteLine ("Avail: {0}", resp.DataAvailable);
 			while (resp.DataAvailable) {
 				NetItemData found = new NetItemData ();
 				found.Keyring = resp.GetString ();
@@ -308,13 +308,55 @@ namespace Gnome.Keyring {
 			return CreateItem (keyring, ItemType.NetworkPassword, display_name, tbl, password, true);
 		}
 
+		public static ItemData GetItemInfo (string keyring, int id)
+		{
+			RequestMessage req = new RequestMessage ();
+			req.CreateSimpleOperation (Operation.GetItemInfo, keyring, id);
+			ResponseMessage resp = SendRequest (req.Stream);
+			ItemType itype = (ItemType) resp.GetInt32 ();
+			ItemData item = ItemData.GetInstanceFromItemType (itype);
+			string name = resp.GetString ();
+			string secret = resp.GetString ();
+			long mtime = (resp.GetInt32 () << 32) + resp.GetInt32 ();
+			long ctime = (resp.GetInt32 () << 32) + resp.GetInt32 ();
+			item.Keyring = keyring;
+			item.ItemID = id;
+			item.Secret = secret;
+			Hashtable tbl = new Hashtable ();
+			tbl ["name"] = name;
+			tbl ["keyring_ctime"] = NativeConvert.FromTimeT (ctime);
+			tbl ["keyring_mtime"] = NativeConvert.FromTimeT (mtime);
+			item.Attributes = tbl;
+			item.SetValuesFromAttributes ();
+			return item;
+		}
+
+		public static Hashtable GetItemAttributes (string keyring, int id)
+		{
+			RequestMessage req = new RequestMessage ();
+			req.CreateSimpleOperation (Operation.GetItemAttributes, keyring, id);
+			ResponseMessage resp = SendRequest (req.Stream);
+			Hashtable tbl = new Hashtable ();
+			int count = resp.GetInt32 ();
+			for (int i = 0; i < count; i++) {
+				string key = resp.GetString ();
+				AttributeType atype = (AttributeType) resp.GetInt32 ();
+				if (atype == AttributeType.String) {
+					tbl [key] = (string) resp.GetString ();
+				} else if (atype == AttributeType.UInt32) {
+					tbl [key] = (int) resp.GetInt32 ();
+				} else {
+					throw new Exception ("This should not happen: "  + atype);
+				}
+			}
+			return tbl;
+		}
+
 		/*
 		* TODO:
 			GetKeyringInfo,
 			SetKeyringInfo,
-			GetItemInfo,
 			SetItemInfo,
-			GetItemAttributes,
 			SetItemAttributes,
 			GetItemACL,
 			SetItemACL
