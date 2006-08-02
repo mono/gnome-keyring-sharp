@@ -26,6 +26,8 @@
       <Type Name="NetItemData" />
       <Type Name="Ring" />
       <Type Name="ItemType" />
+      <Type Name="GenericItemData" />
+      <Type Name="NoteItemData" />
     </Namespace>
   </Types>
   <Title>Gnome.Keyring</Title>

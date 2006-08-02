@@ -1,5 +1,5 @@
 <Type Name="ItemData" FullName="Gnome.Keyring.ItemData">
-  <TypeSignature Language="C#" Value="public class ItemData" />
+  <TypeSignature Language="C#" Value="public abstract class ItemData" />
   <AssemblyInfo>
     <AssemblyName>Gnome.Keyring</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -10,59 +10,60 @@
   <Interfaces />
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ItemData ();" />
+      <MemberSignature Language="C#" Value="protected ItemData ();" />
       <MemberType>Constructor</MemberType>
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Keyring">
       <MemberSignature Language="C#" Value="public string Keyring;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String</ReturnType></ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="ItemID">
       <MemberSignature Language="C#" Value="public int ItemID;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Int32</ReturnType></ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Secret">
       <MemberSignature Language="C#" Value="public string Secret;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String</ReturnType></ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Attributes">
       <MemberSignature Language="C#" Value="public System.Collections.Hashtable Attributes;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.Collections.Hashtable</ReturnType>
+        <ReturnType>System.Collections.Hashtable</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks></Docs>
+    </Member>
+  <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public abstract Gnome.Keyring.ItemType Type { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ItemType</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-  </Members>
+      </Docs></Member></Members>
   <Docs>
     <summary>To be added.</summary>
     <remarks>To be added.</remarks>

@@ -15,164 +15,135 @@
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="LockAll">
       <MemberSignature Language="C#" Value="public static void LockAll ();" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="SetDefaultKeyring">
       <MemberSignature Language="C#" Value="public static void SetDefaultKeyring (string newKeyring);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters>
-        <Parameter Name="newKeyring" Type="System.String" />
-      </Parameters>
+        <Parameter Name="newKeyring" Type="System.String" /></Parameters>
       <Docs>
         <param name="newKeyring">To be added.</param>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="GetDefaultKeyring">
       <MemberSignature Language="C#" Value="public static string GetDefaultKeyring ();" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String</ReturnType></ReturnValue>
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="GetKeyrings">
       <MemberSignature Language="C#" Value="public static string[] GetKeyrings ();" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.String[]</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String[]</ReturnType></ReturnValue>
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="CreateKeyring">
       <MemberSignature Language="C#" Value="public static void CreateKeyring (string name, string password);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters>
         <Parameter Name="name" Type="System.String" />
-        <Parameter Name="password" Type="System.String" />
-      </Parameters>
+        <Parameter Name="password" Type="System.String" /></Parameters>
       <Docs>
         <param name="name">To be added.</param>
         <param name="password">To be added.</param>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Lock">
       <MemberSignature Language="C#" Value="public static void Lock (string keyring);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters>
-        <Parameter Name="keyring" Type="System.String" />
-      </Parameters>
+        <Parameter Name="keyring" Type="System.String" /></Parameters>
       <Docs>
         <param name="keyring">To be added.</param>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Unlock">
       <MemberSignature Language="C#" Value="public static void Unlock (string keyring);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters>
-        <Parameter Name="keyring" Type="System.String" />
-      </Parameters>
+        <Parameter Name="keyring" Type="System.String" /></Parameters>
       <Docs>
         <param name="keyring">To be added.</param>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="DeleteKeyring">
       <MemberSignature Language="C#" Value="public static void DeleteKeyring (string keyring);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters>
-        <Parameter Name="keyring" Type="System.String" />
-      </Parameters>
+        <Parameter Name="keyring" Type="System.String" /></Parameters>
       <Docs>
         <param name="keyring">To be added.</param>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="ListItemIDs">
       <MemberSignature Language="C#" Value="public static int[] ListItemIDs (string keyring);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Int32[]</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Int32[]</ReturnType></ReturnValue>
       <Parameters>
-        <Parameter Name="keyring" Type="System.String" />
-      </Parameters>
+        <Parameter Name="keyring" Type="System.String" /></Parameters>
       <Docs>
         <param name="keyring">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Find">
       <MemberSignature Language="C#" Value="public static Gnome.Keyring.ItemData[] Find (Gnome.Keyring.ItemType type, System.Collections.Hashtable atts);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>Gnome.Keyring.ItemData[]</ReturnType>
-      </ReturnValue>
+        <ReturnType>Gnome.Keyring.ItemData[]</ReturnType></ReturnValue>
       <Parameters>
         <Parameter Name="type" Type="Gnome.Keyring.ItemType" />
-        <Parameter Name="atts" Type="System.Collections.Hashtable" />
-      </Parameters>
+        <Parameter Name="atts" Type="System.Collections.Hashtable" /></Parameters>
       <Docs>
         <param name="type">To be added.</param>
         <param name="atts">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="FindNetworkPassword">
       <MemberSignature Language="C#" Value="public static Gnome.Keyring.NetItemData[] FindNetworkPassword (string user, string domain, string server, string obj, string protocol, string authtype, int port);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>Gnome.Keyring.NetItemData[]</ReturnType>
-      </ReturnValue>
+        <ReturnType>Gnome.Keyring.NetItemData[]</ReturnType></ReturnValue>
       <Parameters>
         <Parameter Name="user" Type="System.String" />
         <Parameter Name="domain" Type="System.String" />
@@ -180,8 +151,7 @@
         <Parameter Name="obj" Type="System.String" />
         <Parameter Name="protocol" Type="System.String" />
         <Parameter Name="authtype" Type="System.String" />
-        <Parameter Name="port" Type="System.Int32" />
-      </Parameters>
+        <Parameter Name="port" Type="System.Int32" /></Parameters>
       <Docs>
         <param name="user">To be added.</param>
         <param name="domain">To be added.</param>
@@ -192,23 +162,20 @@
         <param name="port">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="CreateItem">
       <MemberSignature Language="C#" Value="public static int CreateItem (string keyring, Gnome.Keyring.ItemType type, string displayName, System.Collections.Hashtable attributes, string secret, bool updateIfExists);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Int32</ReturnType></ReturnValue>
       <Parameters>
         <Parameter Name="keyring" Type="System.String" />
         <Parameter Name="type" Type="Gnome.Keyring.ItemType" />
         <Parameter Name="displayName" Type="System.String" />
         <Parameter Name="attributes" Type="System.Collections.Hashtable" />
         <Parameter Name="secret" Type="System.String" />
-        <Parameter Name="updateIfExists" Type="System.Boolean" />
-      </Parameters>
+        <Parameter Name="updateIfExists" Type="System.Boolean" /></Parameters>
       <Docs>
         <param name="keyring">To be added.</param>
         <param name="type">To be added.</param>
@@ -218,32 +185,27 @@
         <param name="updateIfExists">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="DeleteItem">
       <MemberSignature Language="C#" Value="public static void DeleteItem (string keyring, int id);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters>
         <Parameter Name="keyring" Type="System.String" />
-        <Parameter Name="id" Type="System.Int32" />
-      </Parameters>
+        <Parameter Name="id" Type="System.Int32" /></Parameters>
       <Docs>
         <param name="keyring">To be added.</param>
         <param name="id">To be added.</param>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="CreateOrModifyNetworkPassword">
       <MemberSignature Language="C#" Value="public static int CreateOrModifyNetworkPassword (string keyring, string user, string domain, string server, string obj, string protocol, string authtype, int port, string password);" />
       <MemberType>Method</MemberType>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Int32</ReturnType></ReturnValue>
       <Parameters>
         <Parameter Name="keyring" Type="System.String" />
         <Parameter Name="user" Type="System.String" />
@@ -253,8 +215,7 @@
         <Parameter Name="protocol" Type="System.String" />
         <Parameter Name="authtype" Type="System.String" />
         <Parameter Name="port" Type="System.Int32" />
-        <Parameter Name="password" Type="System.String" />
-      </Parameters>
+        <Parameter Name="password" Type="System.String" /></Parameters>
       <Docs>
         <param name="keyring">To be added.</param>
         <param name="user">To be added.</param>
@@ -267,34 +228,61 @@
         <param name="password">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="ApplicationName">
       <MemberSignature Language="C#" Value="public static string ApplicationName { set; get; };" />
       <MemberType>Property</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String</ReturnType></ReturnValue>
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Available">
       <MemberSignature Language="C#" Value="public static bool Available { get; };" />
       <MemberType>Property</MemberType>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Boolean</ReturnType></ReturnValue>
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
-  </Members>
+  <Member MemberName="GetItemInfo">
+      <MemberSignature Language="C#" Value="public static Gnome.Keyring.ItemData GetItemInfo (string keyring, int id);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ItemData</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="keyring" Type="System.String" />
+        <Parameter Name="id" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="keyring">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs></Member><Member MemberName="GetItemAttributes">
+      <MemberSignature Language="C#" Value="public static System.Collections.Hashtable GetItemAttributes (string keyring, int id);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Collections.Hashtable</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="keyring" Type="System.String" />
+        <Parameter Name="id" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="keyring">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs></Member></Members>
   <Docs>
     <summary>To be added.</summary>
     <remarks>To be added.</remarks>

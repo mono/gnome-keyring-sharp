@@ -1,0 +1,26 @@
+<Type Name="NoteItemData" FullName="Gnome.Keyring.NoteItemData">
+  <TypeSignature Language="C#" Value="public class NoteItemData : Gnome.Keyring.ItemData" />
+  <AssemblyInfo>
+    <AssemblyName>Gnome.Keyring</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Gnome.Keyring.ItemData</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public NoteItemData ();" />
+      <MemberType>Constructor</MemberType>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

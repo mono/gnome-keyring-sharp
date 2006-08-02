@@ -1,3 +1,27 @@
+2006-08-02 Gonzalo Paniagua Javier <gonzalo@ximian.com>
+
+	* sample/Makefile.am:
+	* sample/secret.cs: test program.
+
+	* docs/Gnome.Keyring/index.xml:
+	* docs/Gnome.Keyring/Gnome.Keyring/ItemType.xml:
+	* docs/Gnome.Keyring/Gnome.Keyring/GenericItemData.xml:
+	* docs/Gnome.Keyring/Gnome.Keyring/KeyringException.xml:
+	* docs/Gnome.Keyring/Gnome.Keyring/ItemData.xml:
+	* docs/Gnome.Keyring/Gnome.Keyring/NoteItemData.xml:
+	* docs/Gnome.Keyring/Gnome.Keyring/NetItemData.xml:
+	* docs/Gnome.Keyring/Gnome.Keyring/Ring.xml: updated docs.
+
+2006-08-02 Gonzalo Paniagua Javier <gonzalo@ximian.com>
+
+	* src/Makefile.am:
+	* src/Gnome.Keyring/Makefile.am:
+	* src/Gnome.Keyring/NetItemData.cs:
+	* src/Gnome.Keyring/ItemData.cs: new class and small updates.
+
+	* src/Gnome.Keyring/Ring.cs: implement GetItemInfo and
+	GetItemAttributes.
+
 2006-08-01 Gonzalo Paniagua Javier <gonzalo@ximian.com>
 
 	* Initial check in.

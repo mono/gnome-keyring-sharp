@@ -1,3 +1,2 @@
-EXTRA_DIST=
-#list-albums.cs create-album.cs
+EXTRA_DIST=secret.cs
 
