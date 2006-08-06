@@ -223,7 +223,7 @@ namespace Gnome.Keyring {
 				list.Add (found);
 			}
 
-			return (NetItemData []) list.ToArray (typeof (NetItemData));
+			return (ItemData []) list.ToArray (typeof (ItemData));
 		}
 
 		public static NetItemData [] FindNetworkPassword (string user, string domain, string server, string obj,
