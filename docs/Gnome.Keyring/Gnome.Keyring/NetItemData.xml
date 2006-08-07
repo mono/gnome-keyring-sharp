@@ -15,70 +15,85 @@
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
     <Member MemberName="User">
       <MemberSignature Language="C#" Value="public string User;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType></ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
     <Member MemberName="Domain">
       <MemberSignature Language="C#" Value="public string Domain;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType></ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
     <Member MemberName="Server">
       <MemberSignature Language="C#" Value="public string Server;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType></ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
     <Member MemberName="Obj">
       <MemberSignature Language="C#" Value="public string Obj;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType></ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
     <Member MemberName="Protocol">
       <MemberSignature Language="C#" Value="public string Protocol;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType></ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
     <Member MemberName="AuthType">
       <MemberSignature Language="C#" Value="public string AuthType;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType></ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
     <Member MemberName="Port">
       <MemberSignature Language="C#" Value="public int Port;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType></ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks></Docs>
+        <remarks>To be added.</remarks>
+      </Docs>
     </Member>
   </Members>
   <Docs>

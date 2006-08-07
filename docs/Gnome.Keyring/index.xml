@@ -21,13 +21,13 @@
   <Copyright>To be added.</Copyright>
   <Types>
     <Namespace Name="Gnome.Keyring">
+      <Type Name="GenericItemData" />
       <Type Name="ItemData" />
       <Type Name="KeyringException" />
       <Type Name="NetItemData" />
+      <Type Name="NoteItemData" />
       <Type Name="Ring" />
       <Type Name="ItemType" />
-      <Type Name="GenericItemData" />
-      <Type Name="NoteItemData" />
     </Namespace>
   </Types>
   <Title>Gnome.Keyring</Title>
