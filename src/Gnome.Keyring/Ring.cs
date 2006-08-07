@@ -32,6 +32,7 @@ using System.Collections;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 
 using Mono.Unix;
 using Mono.Unix.Native;
@@ -40,11 +41,26 @@ namespace Gnome.Keyring {
 	public class Ring {
 		static string appname;
 
+		private Ring ()
+		{
+		}
+
 		public static string ApplicationName {
-			get { return appname; }
+			get {
+				if (appname == null) {
+					Assembly assembly = Assembly.GetEntryAssembly ();
+					if (assembly == null)
+						throw new Exception ("You need to set Ring.ApplicationName.");
+					appname = assembly.GetName ().Name;
+				}
+
+				return appname;
+			}
+
 			set {
 				if (value == null || value == "")
 					throw new ArgumentException ("Cannot be null or empty", "value");
+
 				appname = value;
 			}
 		}
@@ -310,6 +326,9 @@ namespace Gnome.Keyring {
 
 		public static ItemData GetItemInfo (string keyring, int id)
 		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
 			RequestMessage req = new RequestMessage ();
 			req.CreateSimpleOperation (Operation.GetItemInfo, keyring, id);
 			ResponseMessage resp = SendRequest (req.Stream);
@@ -331,33 +350,53 @@ namespace Gnome.Keyring {
 			return item;
 		}
 
+		public static void SetItemInfo (string keyring, int id, ItemType type, string displayName, string secret)
+		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
+			RequestMessage req = new RequestMessage ();
+			req.StartOperation (Operation.SetItemInfo);
+			req.Write (keyring);
+			req.Write (id);
+			req.Write ((int) type);
+			req.Write (displayName);
+			req.Write (secret);
+			req.EndOperation ();
+			SendRequest (req.Stream);
+		}
+
 		public static Hashtable GetItemAttributes (string keyring, int id)
 		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
 			RequestMessage req = new RequestMessage ();
 			req.CreateSimpleOperation (Operation.GetItemAttributes, keyring, id);
 			ResponseMessage resp = SendRequest (req.Stream);
 			Hashtable tbl = new Hashtable ();
-			int count = resp.GetInt32 ();
-			for (int i = 0; i < count; i++) {
-				string key = resp.GetString ();
-				AttributeType atype = (AttributeType) resp.GetInt32 ();
-				if (atype == AttributeType.String) {
-					tbl [key] = (string) resp.GetString ();
-				} else if (atype == AttributeType.UInt32) {
-					tbl [key] = (int) resp.GetInt32 ();
-				} else {
-					throw new Exception ("This should not happen: "  + atype);
-				}
-			}
+			resp.ReadAttributes (tbl);
 			return tbl;
+		}
+
+		public static void SetItemAttributes (string keyring, int id, Hashtable atts)
+		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
+			RequestMessage req = new RequestMessage ();
+			req.StartOperation (Operation.SetItemAttributes);
+			req.Write (keyring);
+			req.Write (id);
+			req.WriteAttributes (atts);
+			req.EndOperation ();
+			SendRequest (req.Stream);
 		}
 
 		/*
 		* TODO:
 			GetKeyringInfo,
 			SetKeyringInfo,
-			SetItemInfo,
-			SetItemAttributes,
 			GetItemACL,
 			SetItemACL
 		*/

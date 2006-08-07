@@ -30,7 +30,6 @@
 using System;
 using System.Collections;
 using System.IO;
-using System.Reflection;
 using System.Text;
 
 namespace Gnome.Keyring {
@@ -74,13 +73,6 @@ namespace Gnome.Keyring {
 		public void StartOperation (Operation op)
 		{
 			string appname = Ring.ApplicationName;
-			if (appname == null) {
-				Assembly assembly = Assembly.GetEntryAssembly ();
-				if (assembly == null)
-					throw new Exception ("You need to set Ring.ApplicationName.");
-				appname = assembly.GetName ().Name;
-				Ring.ApplicationName = appname;
-			}
 			BinaryWriter writer = new BinaryWriter (stream);
 			writer.Write (0);
 

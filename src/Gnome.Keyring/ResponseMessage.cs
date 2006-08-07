@@ -88,8 +88,10 @@ namespace Gnome.Keyring {
 				AttributeType type = (AttributeType) GetInt32 ();
 				if (AttributeType.String == type) {
 					val = GetString ();
-				} else {
+				} else if (type == AttributeType.UInt32) {
 					val = GetInt32 ();
+				} else {
+					throw new Exception ("This should not happen: "  + type);
 				}
 				tbl [name] = val;
 			}

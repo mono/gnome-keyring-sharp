@@ -68,8 +68,19 @@ namespace Gnome.Keyring {
 			tbl ["domain"] = "MiDomain";
 			Console.WriteLine ("Creating item");
 			int i = Ring.CreateItem (null, ItemType.NetworkPassword, "lala@pepe.com", tbl, "laclave", true);
+			ItemData d2 = Ring.GetItemInfo (deflt, i);
+			Ring.SetItemInfo (deflt, d2.ItemID, ItemType.NetworkPassword, "cambioesto@lalala", "otraclave");
+			Hashtable atts = Ring.GetItemAttributes (deflt, i);
+			foreach (string key in atts.Keys) {
+				Console.WriteLine ("{0}: {1}", key, atts [key]);
+			}
+
+			atts ["object"] = "new attributes";
+			Ring.SetItemAttributes (deflt, i, atts);
+			Console.ReadLine ();
+
 			Console.WriteLine ("Deleting it (ID = {0})", i);
-		//	Ring.DeleteItem (Ring.GetDefaultKeyring (), i);
+			Ring.DeleteItem (Ring.GetDefaultKeyring (), i);
 			Console.WriteLine ("Existing IDs...");
 			foreach (int nn in Ring.ListItemIDs (deflt)) {
 				Console.WriteLine (nn);
