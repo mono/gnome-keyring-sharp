@@ -1,0 +1,88 @@
+<Type Name="ResultCode" FullName="Gnome.Keyring.ResultCode">
+  <TypeSignature Language="C#" Value="public enum ResultCode" />
+  <AssemblyInfo>
+    <AssemblyName>Gnome.Keyring</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Members>
+    <Member MemberName="Denied">
+      <MemberSignature Language="C#" Value="Denied" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="Ok">
+      <MemberSignature Language="C#" Value="Ok" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="IOError">
+      <MemberSignature Language="C#" Value="IOError" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="AlreadyExists">
+      <MemberSignature Language="C#" Value="AlreadyExists" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="NoKeyringDaemon">
+      <MemberSignature Language="C#" Value="NoKeyringDaemon" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="Cancelled">
+      <MemberSignature Language="C#" Value="Cancelled" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="AlreadyUnlocked">
+      <MemberSignature Language="C#" Value="AlreadyUnlocked" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="NoSuchKeyring">
+      <MemberSignature Language="C#" Value="NoSuchKeyring" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+    <Member MemberName="BadArguments">
+      <MemberSignature Language="C#" Value="BadArguments" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.ResultCode</ReturnType></ReturnValue>
+      <Docs>
+        <summary>To be added.</summary></Docs>
+    </Member>
+  </Members>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>
