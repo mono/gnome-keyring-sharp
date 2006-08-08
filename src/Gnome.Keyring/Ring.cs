@@ -215,6 +215,7 @@ namespace Gnome.Keyring {
 			return result;
 		}
 
+		static ItemData [] empty_item_data = new ItemData [0];
 		public static ItemData [] Find (ItemType type, Hashtable atts)
 		{
 			if (atts == null)
@@ -225,7 +226,15 @@ namespace Gnome.Keyring {
 			req.WriteAttributes (atts);
 			req.EndOperation ();
 
-			ResponseMessage resp = SendRequest (req.Stream);
+			ResponseMessage resp = null;
+			try {
+				resp = SendRequest (req.Stream);
+			} catch (KeyringException ke) {
+				if (ke.ResultCode == ResultCode.Denied)
+					return empty_item_data;
+				throw;
+			}
+
 			ArrayList list = new ArrayList ();
 			while (resp.DataAvailable) {
 				ItemData found = ItemData.GetInstanceFromItemType (type);
@@ -241,6 +250,7 @@ namespace Gnome.Keyring {
 			return (ItemData []) list.ToArray (typeof (ItemData));
 		}
 
+		static NetItemData [] empty_net_item_data = new NetItemData [0];
 		public static NetItemData [] FindNetworkPassword (string user, string domain, string server, string obj,
 									string protocol, string authtype, int port)
 		{
@@ -259,7 +269,14 @@ namespace Gnome.Keyring {
 			req.WriteAttributes (tbl);
 			req.EndOperation ();
 
-			ResponseMessage resp = SendRequest (req.Stream);
+			ResponseMessage resp = null;
+			try {
+				resp = SendRequest (req.Stream);
+			} catch (KeyringException ke) {
+				if (ke.ResultCode == ResultCode.Denied)
+					return empty_net_item_data;
+				throw;
+			}
 			ArrayList list = new ArrayList ();
 			while (resp.DataAvailable) {
 				NetItemData found = new NetItemData ();

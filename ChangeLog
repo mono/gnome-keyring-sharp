@@ -1,3 +1,12 @@
+2006-08-08 Gonzalo Paniagua Javier <gonzalo@ximian.com>
+
+	* src/Gnome.Keyring/KeyringException.cs: implement ISerializable and
+	added a new 'code' field and its property.
+	* src/Gnome.Keyring/Ring.cs: the daemon returns 'access denied' when
+	no items matching are found,(Find, FindNetworkPassword) we translate
+	that into an empty array returned.
+	* src/Gnome.Keyring/ResultCode.cs: make it public.
+
 2006-08-07 Gonzalo Paniagua Javier <gonzalo@ximian.com>
 
 	* sample/secret.cs: updated example.

@@ -31,18 +31,32 @@ using System;
 using System.Runtime.Serialization;
 
 namespace Gnome.Keyring {
-	public class KeyringException : Exception {
+	public class KeyringException : Exception, ISerializable {
+		ResultCode code;
+
 		public KeyringException () : base ("Unknown error")
 		{
 		}
 
 		internal KeyringException (ResultCode code) : base (GetMsg (code))
 		{
+			this.code = code;
 		}
 
 		protected KeyringException (SerializationInfo info, StreamingContext context)
 			: base (info, context)
 		{
+			code = (ResultCode) info.GetInt32 ("code");
+		}
+
+		void ISerializable.GetObjectData (SerializationInfo info, StreamingContext context)
+		{
+			base.GetObjectData (info, context);
+			info.AddValue ("code", (int) code, typeof (int));
+		}
+
+		public ResultCode ResultCode {
+			get { return code; }
 		}
 
 		static string GetMsg (ResultCode code)

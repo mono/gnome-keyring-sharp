@@ -28,7 +28,7 @@
 //
 
 namespace Gnome.Keyring {
-	enum ResultCode {
+	public enum ResultCode {
 		Ok,
 		Denied,
 		NoKeyringDaemon,
