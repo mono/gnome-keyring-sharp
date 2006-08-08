@@ -28,6 +28,9 @@
       <Type Name="NoteItemData" />
       <Type Name="Ring" />
       <Type Name="ItemType" />
+      <Type Name="ItemACL" />
+      <Type Name="KeyringInfo" />
+      <Type Name="AccessRights" />
     </Namespace>
   </Types>
   <Title>Gnome.Keyring</Title>

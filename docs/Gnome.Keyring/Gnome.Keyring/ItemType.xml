@@ -12,31 +12,25 @@
       <MemberSignature Language="C#" Value="GenericSecret" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>Gnome.Keyring.ItemType</ReturnType>
-      </ReturnValue>
+        <ReturnType>Gnome.Keyring.ItemType</ReturnType></ReturnValue>
       <Docs>
-        <summary>Stores just a password.</summary>
-      </Docs>
+        <summary>Stores just a password.</summary></Docs>
     </Member>
     <Member MemberName="NetworkPassword">
       <MemberSignature Language="C#" Value="NetworkPassword" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>Gnome.Keyring.ItemType</ReturnType>
-      </ReturnValue>
+        <ReturnType>Gnome.Keyring.ItemType</ReturnType></ReturnValue>
       <Docs>
-        <summary>Stores user, server, domain, password...</summary>
-      </Docs>
+        <summary>Stores user, server, domain, password...</summary></Docs>
     </Member>
     <Member MemberName="Note">
       <MemberSignature Language="C#" Value="Note" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>Gnome.Keyring.ItemType</ReturnType>
-      </ReturnValue>
+        <ReturnType>Gnome.Keyring.ItemType</ReturnType></ReturnValue>
       <Docs>
-        <summary>A note.</summary>
-      </Docs>
+        <summary>A note.</summary></Docs>
     </Member>
   </Members>
   <Docs>

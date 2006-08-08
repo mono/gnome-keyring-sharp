@@ -15,64 +15,53 @@
       <Parameters />
       <Docs>
         <summary>Constructor used by derived classes.</summary>
-        <remarks>None.</remarks>
-      </Docs>
+        <remarks>None.</remarks></Docs>
     </Member>
     <Member MemberName="Keyring">
       <MemberSignature Language="C#" Value="public string Keyring;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String</ReturnType></ReturnValue>
       <Docs>
         <summary>The keyring in which this object is stored.</summary>
-        <remarks>None.</remarks>
-      </Docs>
+        <remarks>None.</remarks></Docs>
     </Member>
     <Member MemberName="ItemID">
       <MemberSignature Language="C#" Value="public int ItemID;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Int32</ReturnType></ReturnValue>
       <Docs>
         <summary>A number identifying this item inside its keyring.</summary>
-        <remarks>None.</remarks>
-      </Docs>
+        <remarks>None.</remarks></Docs>
     </Member>
     <Member MemberName="Secret">
       <MemberSignature Language="C#" Value="public string Secret;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String</ReturnType></ReturnValue>
       <Docs>
         <summary>The password stored in this item.</summary>
-        <remarks>Keep it secret.</remarks>
-      </Docs>
+        <remarks>Keep it secret.</remarks></Docs>
     </Member>
     <Member MemberName="Attributes">
       <MemberSignature Language="C#" Value="public System.Collections.Hashtable Attributes;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.Collections.Hashtable</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.Collections.Hashtable</ReturnType></ReturnValue>
       <Docs>
         <summary>Key-value pairs for the properties of this item.</summary>
-        <remarks>None.</remarks>
-      </Docs>
+        <remarks>None.</remarks></Docs>
     </Member>
     <Member MemberName="Type">
       <MemberSignature Language="C#" Value="public abstract Gnome.Keyring.ItemType Type { get; };" />
       <MemberType>Property</MemberType>
       <ReturnValue>
-        <ReturnType>Gnome.Keyring.ItemType</ReturnType>
-      </ReturnValue>
+        <ReturnType>Gnome.Keyring.ItemType</ReturnType></ReturnValue>
       <Docs>
         <summary>Returns the type of keyring object represented by this instance.</summary>
         <value>The keyring object type of this instance.</value>
-        <remarks>None.</remarks>
-      </Docs>
+        <remarks>None.</remarks></Docs>
     </Member>
   </Members>
   <Docs>

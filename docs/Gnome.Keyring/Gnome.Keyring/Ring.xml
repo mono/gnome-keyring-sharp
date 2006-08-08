@@ -346,9 +346,9 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Application name sent to the keyring daemon.</summary>
+        <value>Application name sent to the keyring daemon.</value>
+        <remarks>If no value is provided, the library will try to get it from the entry assembly name. If this is not possible, it will throw an exception.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Available">
@@ -358,14 +358,132 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
+        <summary>Whether the keyring daemon is available or not.</summary>
+        <value>Whether the keyring daemon is available or not.</value>
+        <remarks>None.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetKeyringInfo">
+      <MemberSignature Language="C#" Value="public static Gnome.Keyring.KeyringInfo GetKeyringInfo (string keyring);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>Gnome.Keyring.KeyringInfo</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="keyring" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="keyring">To be added.</param>
         <summary>To be added.</summary>
-        <value>To be added.</value>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetKeyringInfo">
+      <MemberSignature Language="C#" Value="public static void SetKeyringInfo (string keyring, Gnome.Keyring.KeyringInfo info);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="keyring" Type="System.String" />
+        <Parameter Name="info" Type="Gnome.Keyring.KeyringInfo" />
+      </Parameters>
+      <Docs>
+        <param name="keyring">To be added.</param>
+        <param name="info">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetItemACL">
+      <MemberSignature Language="C#" Value="public static System.Collections.ArrayList GetItemACL (string keyring, int id);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Collections.ArrayList</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="keyring" Type="System.String" />
+        <Parameter Name="id" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="keyring">To be added.</param>
+        <param name="id">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetItemACL">
+      <MemberSignature Language="C#" Value="public static void SetItemACL (string keyring, int id, System.Collections.ICollection acls);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="keyring" Type="System.String" />
+        <Parameter Name="id" Type="System.Int32" />
+        <Parameter Name="acls" Type="System.Collections.ICollection" />
+      </Parameters>
+      <Docs>
+        <param name="keyring">To be added.</param>
+        <param name="id">To be added.</param>
+        <param name="acls">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetItemACL">
+      <MemberSignature Language="C#" Value="public static void SetItemACL (string keyring, int id, Gnome.Keyring.ItemACL[] acls);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="keyring" Type="System.String" />
+        <Parameter Name="id" Type="System.Int32" />
+        <Parameter Name="acls" Type="Gnome.Keyring.ItemACL[]" />
+      </Parameters>
+      <Docs>
+        <param name="keyring">To be added.</param>
+        <param name="id">To be added.</param>
+        <param name="acls">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>
   <Docs>
     <summary>A class that has static methods to access the GNOME keyring daemon.</summary>
-    <remarks>None.</remarks>
+    <remarks>
+      <para>Sample code to check for the availability of the keyring daemon and list the keyrings stored:</para>
+      <example>
+        <code lang="C#">
+using System;
+using System.Collections;
+using Gnome.Keyring;
+
+class Test {
+	static void Main ()
+	{
+		if (!Ring.Available) {
+			Console.WriteLine ("The gnome-keyring-daemon cannot be reached.");
+			return;
+		}
+
+		string deflt = Ring.GetDefaultKeyring ();
+		Console.WriteLine ("The default keyring is '{0}'", deflt);
+		Console.Write ("Other available rings: ");
+
+		foreach (string s in Ring.GetKeyrings ()) {
+			if (s != deflt)
+				Console.Write ("'{0}' ", s);
+		}
+		Console.WriteLine ();
+	}
+}
+  </code>
+      </example>
+    </remarks>
   </Docs>
 </Type>

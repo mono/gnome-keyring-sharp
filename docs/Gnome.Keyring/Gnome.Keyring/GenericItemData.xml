@@ -15,19 +15,16 @@
       <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
     <Member MemberName="Name">
       <MemberSignature Language="C#" Value="public string Name;" />
       <MemberType>Field</MemberType>
       <ReturnValue>
-        <ReturnType>System.String</ReturnType>
-      </ReturnValue>
+        <ReturnType>System.String</ReturnType></ReturnValue>
       <Docs>
         <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+        <remarks>To be added.</remarks></Docs>
     </Member>
   </Members>
   <Docs>
