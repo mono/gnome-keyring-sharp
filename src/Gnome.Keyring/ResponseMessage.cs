@@ -32,6 +32,8 @@ using System.Collections;
 using System.IO;
 using System.Text;
 
+using Mono.Unix.Native;
+
 namespace Gnome.Keyring {
 	class ResponseMessage {
 		byte [] buffer;
@@ -77,6 +79,11 @@ namespace Gnome.Keyring {
 			byte b1 = (byte) stream.ReadByte ();
 			byte b0 = (byte) stream.ReadByte ();
 			return (b0 + (b1 << 8) + (b2 << 16) + (b3 << 24));
+		}
+
+		public DateTime GetDateTime ()
+		{
+			return NativeConvert.FromTimeT ((GetInt32 () << 32) + GetInt32 ());
 		}
 
 		public void ReadAttributes (Hashtable tbl)

@@ -77,6 +77,7 @@ namespace Gnome.Keyring {
 
 			atts ["object"] = "new attributes";
 			Ring.SetItemAttributes (deflt, i, atts);
+			Console.WriteLine ("Press any key to continue...");
 			Console.ReadLine ();
 
 			Console.WriteLine ("Deleting it (ID = {0})", i);
@@ -85,6 +86,22 @@ namespace Gnome.Keyring {
 			foreach (int nn in Ring.ListItemIDs (deflt)) {
 				Console.WriteLine (nn);
 			}
+
+			KeyringInfo info = new KeyringInfo (true, 15);
+			Ring.SetKeyringInfo (deflt, info);
+
+			info = Ring.GetKeyringInfo (deflt);
+			Console.WriteLine (info);
+			ArrayList acl_list = Ring.GetItemACL (deflt, 3);
+			foreach (ItemACL acl in acl_list)
+				Console.WriteLine (acl);
+
+			ArrayList list2 = new ArrayList (acl_list);
+			list2.Add (new ItemACL ("test", "/test", AccessRights.Read));
+			Ring.SetItemACL (deflt, 3, list2);
+			Console.WriteLine ("Press any key to continue...");
+			Console.ReadLine ();
+			Ring.SetItemACL (deflt, 3, acl_list);
 		}
 	}
 }

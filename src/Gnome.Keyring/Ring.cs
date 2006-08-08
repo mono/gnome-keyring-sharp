@@ -35,7 +35,6 @@ using System.Net.Sockets;
 using System.Reflection;
 
 using Mono.Unix;
-using Mono.Unix.Native;
 
 namespace Gnome.Keyring {
 	public class Ring {
@@ -336,15 +335,15 @@ namespace Gnome.Keyring {
 			ItemData item = ItemData.GetInstanceFromItemType (itype);
 			string name = resp.GetString ();
 			string secret = resp.GetString ();
-			long mtime = (resp.GetInt32 () << 32) + resp.GetInt32 ();
-			long ctime = (resp.GetInt32 () << 32) + resp.GetInt32 ();
+			DateTime mtime = resp.GetDateTime ();
+			DateTime ctime =  resp.GetDateTime ();
 			item.Keyring = keyring;
 			item.ItemID = id;
 			item.Secret = secret;
 			Hashtable tbl = new Hashtable ();
 			tbl ["name"] = name;
-			tbl ["keyring_ctime"] = NativeConvert.FromTimeT (ctime);
-			tbl ["keyring_mtime"] = NativeConvert.FromTimeT (mtime);
+			tbl ["keyring_ctime"] = ctime;
+			tbl ["keyring_mtime"] = mtime;
 			item.Attributes = tbl;
 			item.SetValuesFromAttributes ();
 			return item;
@@ -393,12 +392,88 @@ namespace Gnome.Keyring {
 			SendRequest (req.Stream);
 		}
 
-		/*
-		* TODO:
-			GetKeyringInfo,
-			SetKeyringInfo,
-			GetItemACL,
-			SetItemACL
-		*/
+		public static KeyringInfo GetKeyringInfo (string keyring)
+		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
+			RequestMessage req = new RequestMessage ();
+			req.CreateSimpleOperation (Operation.GetKeyringInfo, keyring);
+			ResponseMessage resp = SendRequest (req.Stream);
+			return new KeyringInfo ((resp.GetInt32 () != 0),
+							resp.GetInt32 (),
+							resp.GetDateTime (),
+							resp.GetDateTime (),
+							(resp.GetInt32 () != 0));
+		}
+
+		public static void SetKeyringInfo (string keyring, KeyringInfo info)
+		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
+			if (info == null)
+				throw new ArgumentNullException ("info");
+
+			RequestMessage req = new RequestMessage ();
+			req.StartOperation (Operation.SetKeyringInfo);
+			req.Write (keyring);
+			req.Write (info.LockOnIdle ? 1 : 0);
+			req.Write (info.LockTimeoutSeconds);
+			req.EndOperation ();
+			SendRequest (req.Stream);
+		}
+
+		public static ArrayList GetItemACL (string keyring, int id)
+		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
+			RequestMessage req = new RequestMessage ();
+			req.CreateSimpleOperation (Operation.GetItemACL, keyring, id);
+			ResponseMessage resp = SendRequest (req.Stream);
+			int count = resp.GetInt32 ();
+			ArrayList list = new ArrayList (count);
+			for (int i = 0; i < count; i++) {
+				list.Add (new ItemACL (resp.GetString (), resp.GetString (), (AccessRights) resp.GetInt32 ()));
+			}
+			return list;
+		}
+
+		public static void SetItemACL (string keyring, int id, ICollection acls)
+		{
+			if (acls == null)
+				throw new ArgumentNullException ("acls");
+
+			ItemACL [] arr = new ItemACL [acls.Count];
+			acls.CopyTo (arr, 0);
+			SetItemACL (keyring, id, arr);
+		}
+
+		public static void SetItemACL (string keyring, int id, ItemACL [] acls)
+		{
+			if (keyring == null)
+				throw new ArgumentNullException ("keyring");
+
+			if (acls == null)
+				throw new ArgumentNullException ("acls");
+
+			if (acls.Length == 0)
+				throw new ArgumentException ("Empty ACL set.", "acls");
+
+			RequestMessage req = new RequestMessage ();
+			req.StartOperation (Operation.SetItemACL);
+			req.Write (keyring);
+			req.Write (id);
+			req.Write (acls.Length);
+			foreach (ItemACL acl in acls) {
+				req.Write (acl.DisplayName);
+				req.Write (acl.FullPath);
+				req.Write ((int) acl.Access);
+			}
+			req.EndOperation ();
+			SendRequest (req.Stream);
+		}
 	}
 }
+

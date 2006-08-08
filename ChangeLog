@@ -1,5 +1,20 @@
 2006-08-07 Gonzalo Paniagua Javier <gonzalo@ximian.com>
 
+	* sample/secret.cs: updated example.
+
+	* src/Makefile.am:
+	* src/Gnome.Keyring/Makefile.am: add new files.
+
+	* src/Gnome.Keyring/ItemACL.cs: new class that stores ACL information.
+	* src/Gnome.Keyring/AccessRights.cs: enum with access rights.
+	* src/Gnome.Keyring/KeyringInfo.cs: keyring information.
+	* src/Gnome.Keyring/ResponseMessage.cs: add GetDateTime().
+	* src/Gnome.Keyring/Ring.cs: implemented Get/SetItemACL,
+	Get/SetKeyringInfo. Nothing left to implement.
+	* README: typo.
+
+2006-08-07 Gonzalo Paniagua Javier <gonzalo@ximian.com>
+
 	* src/Gnome.Keyring/RequestMessage.cs: the application name is not
 	obtained here any more.
 	

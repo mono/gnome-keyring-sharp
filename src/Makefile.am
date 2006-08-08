@@ -13,11 +13,14 @@ CLEANFILES = Gnome.Keyring.dll*
 gnomekeyring_references=
 
 gnomekeyring_sources  = \
+			Gnome.Keyring/AccessRights.cs \
 			Gnome.Keyring/AttributeType.cs \
 			Gnome.Keyring/GenericItemData.cs \
+			Gnome.Keyring/ItemACL.cs \
 			Gnome.Keyring/ItemData.cs \
 			Gnome.Keyring/ItemType.cs \
 			Gnome.Keyring/KeyringException.cs \
+			Gnome.Keyring/KeyringInfo.cs \
 			Gnome.Keyring/NetItemData.cs \
 			Gnome.Keyring/NoteItemData.cs \
 			Gnome.Keyring/Operation.cs \
