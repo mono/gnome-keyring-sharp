@@ -178,14 +178,22 @@ namespace Gnome.Keyring {
 			SendRequest (req.Stream);
 		}
 
-		public static void Unlock (string keyring)
+		public static void Unlock (string keyring, string password)
 		{
 			if (keyring == null)
 				throw new ArgumentNullException ("keyring");
 
+			if (password == null)
+				throw new ArgumentNullException ("password");
+
 			RequestMessage req = new RequestMessage ();
-			req.CreateSimpleOperation (Operation.UnlockKeyring, keyring);
-			SendRequest (req.Stream);
+			req.CreateSimpleOperation (Operation.UnlockKeyring, keyring, password);
+			try {
+				SendRequest (req.Stream);
+			} catch (KeyringException ke) {
+				if (ke.ResultCode != ResultCode.AlreadyUnlocked)
+					throw;
+			}
 		}
 
 		public static void DeleteKeyring (string keyring)
@@ -417,7 +425,7 @@ namespace Gnome.Keyring {
 			RequestMessage req = new RequestMessage ();
 			req.CreateSimpleOperation (Operation.GetKeyringInfo, keyring);
 			ResponseMessage resp = SendRequest (req.Stream);
-			return new KeyringInfo ((resp.GetInt32 () != 0),
+			return new KeyringInfo (keyring, (resp.GetInt32 () != 0),
 							resp.GetInt32 (),
 							resp.GetDateTime (),
 							resp.GetDateTime (),

@@ -35,9 +35,11 @@ namespace Gnome.Keyring {
 		DateTime ctime;
 		bool lock_on_idle;
 		bool locked;
+		string name;
 
-		internal KeyringInfo (bool lock_on_idle, int lock_timeout, DateTime mtime, DateTime ctime, bool locked)
+		internal KeyringInfo (string name, bool lock_on_idle, int lock_timeout, DateTime mtime, DateTime ctime, bool locked)
 		{
+			this.name = name;
 			this.lock_timeout = lock_timeout;
 			this.mtime = mtime;
 			this.ctime = ctime;
@@ -61,12 +63,17 @@ namespace Gnome.Keyring {
 
 		public override string ToString ()
 		{
-			return String.Format ("LockOnIdle: {0}\n" +
-						"Locked: {1}\n" +
-						"Lock timeout: {2}\n" +
-						"Creation time: {3}\n" +
-						"Modification time: {4}\n",
-						lock_on_idle, locked, lock_timeout, ctime, mtime);
+			return String.Format ("Keyring name: {0}\n" +
+						"Locked: {2}\n" +
+						"LockOnIdle: {1}\n" +
+						"Lock timeout: {3}\n" +
+						"Creation time: {4}\n" +
+						"Modification time: {5}",
+						name, lock_on_idle, locked, lock_timeout, ctime, mtime);
+		}
+
+		public string Name {
+			get { return name; }
 		}
 
 		public bool LockOnIdle {

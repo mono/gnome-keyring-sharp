@@ -1,3 +1,8 @@
+2006-08-10 Gonzalo Paniagua Javier <gonzalo@ximian.com>
+
+	* src/Gnome.Keyring/KeyringInfo.cs: add a Name property.
+	* src/Gnome.Keyring/Ring.cs: Unlock needed a password.
+
 2006-08-08 Gonzalo Paniagua Javier <gonzalo@ximian.com>
 
 	* src/Gnome.Keyring/KeyringException.cs: implement ISerializable and
