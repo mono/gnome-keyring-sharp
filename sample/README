@@ -1,0 +1,9 @@
+
+Run
+	make samples
+
+to build the executables.
+
+You will need Gnome.Keyring.dll to be in this directory when running
+them.
+
