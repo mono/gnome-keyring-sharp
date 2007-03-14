@@ -1,6 +1,13 @@
 2007-03-14  Alp Toker  <alp@atoker.com>
 
 	* configure.ac:
+	* src/Makefile.am: Reference NDesk D-Bus when both it and gmcs are
+	available. If only mcs is around or D-Bus isn't available, things will
+	still build.
+
+2007-03-14  Alp Toker  <alp@atoker.com>
+
+	* configure.ac:
 	* src/Makefile.am: Rename MCSFLAGS to CSFLAGS, MCS to CSC.
 
 2007-03-13  Alp Toker  <alp@atoker.com>

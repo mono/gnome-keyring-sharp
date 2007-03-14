@@ -8,17 +8,45 @@ AM_MAINTAINER_MODE
 AC_PROG_INSTALL
 
 AC_PATH_PROG(CSC, csc, no)
+AC_PATH_PROG(GMCS, gmcs, no)
 AC_PATH_PROG(MCS, mcs, no)
 AC_PATH_PROG(RUNTIME, mono, no)
 CS="C#"
-if test "x$MCS" = "xno" -a "x$CSC" = "xno"  ; then
-	dnl AC_MSG_ERROR([You need to install a C# compiler])
-	AC_MSG_ERROR([No $CS compiler found])
-fi
 
 if test "x$CSC" = "xno" ; then
-	CSC=$MCS
+	if test "x$GMCS" = "xno" ; then
+		if test "x$MCS" = "xno" ; then
+			AC_MSG_ERROR([No $CS compiler found])
+		else
+			CSC=$MCS
+			ENABLE_DBUS="no"
+		fi
+	else
+		CSC=$GMCS
+	fi
 fi
+
+#
+# Use D-Bus as a fallback to get the keyring socket address
+#
+AC_ARG_ENABLE(dbus, 
+	      [  --enable-dbus[[=no/yes]]    compile with D-Bus support [[default: yes]]],
+	      ENABLE_DBUS="$enableval")
+AM_CONDITIONAL(ENABLE_DBUS, test "x$ENABLE_DBUS" != "xno")
+
+CSFLAGS=
+DBUS_LIBS=
+if test "x$ENABLE_DBUS" != "xno" ; then
+	PKG_CHECK_MODULES(DBUS, ndesk-dbus-1.0 >= 0.4, HAVE_DBUS="yes", HAVE_DBUS="no")
+
+	if test "x$HAVE_DBUS" = "xno"; then
+	  AC_MSG_ERROR($DBUS_PKG_ERRORS: consider passing --enable-dbus=no to configure)
+	fi
+
+	CSFLAGS=" -d:ENABLE_DBUS "
+fi
+AC_SUBST(CSFLAGS)
+AC_SUBST(DBUS_LIBS)
 
 
 AC_PATH_PROG(MDASSEMBLER, mdassembler, no)
