@@ -1,7 +1,7 @@
 SUBDIRS=Gnome.Keyring
 
 pkgconfigdir=$(libdir)/pkgconfig
-MCSFLAGS= -debug+ -debug:full -nologo -r:Mono.Posix.dll
+CSFLAGS= -debug+ -debug:full -nologo -r:Mono.Posix.dll
 
 gnomekeyringdir = $(prefix)/lib/Gnome.Keyring
 pkgconfig_DATA = gnome-keyring-sharp.pc
@@ -32,5 +32,5 @@ gnomekeyring_sources  = \
 gnomekeyring_build_sources = $(addprefix $(srcdir)/, $(gnomekeyring_sources)) $(addprefix $(top_builddir)/src/Gnome.Keyring/, AssemblyInfo.cs)
 
 Gnome.Keyring.dll: $(gnomekeyring_build_sources)
-	$(MCS) $(MCSFLAGS) $(gnomekeyring_references) /target:library /out:$@ $(gnomekeyring_build_sources)
+	$(CSC) $(CSFLAGS) $(gnomekeyring_references) /target:library /out:$@ $(gnomekeyring_build_sources)
 

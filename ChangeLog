@@ -1,3 +1,8 @@
+2007-03-14  Alp Toker  <alp@atoker.com>
+
+	* configure.ac:
+	* src/Makefile.am: Rename MCSFLAGS to CSFLAGS, MCS to CSC.
+
 2007-03-13  Alp Toker  <alp@atoker.com>
 
 	* src/Gnome.Keyring/Ring.cs: Add support for getting the keyring

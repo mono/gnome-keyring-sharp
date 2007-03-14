@@ -11,13 +11,13 @@ AC_PATH_PROG(CSC, csc, no)
 AC_PATH_PROG(MCS, mcs, no)
 AC_PATH_PROG(RUNTIME, mono, no)
 CS="C#"
-if test "x$CSC" = "xno" -a "x$MCS" = "xno"  ; then
+if test "x$MCS" = "xno" -a "x$CSC" = "xno"  ; then
 	dnl AC_MSG_ERROR([You need to install a C# compiler])
 	AC_MSG_ERROR([No $CS compiler found])
 fi
 
-if test "x$MCS" = "xno" ; then
-	MCS=$CSC
+if test "x$CSC" = "xno" ; then
+	CSC=$MCS
 fi
 
 
@@ -32,7 +32,7 @@ else
 fi
 
 AM_CONDITIONAL(ENABLE_MONODOC, test "x$enable_monodoc" = "xyes")
-AC_SUBST(MCS)
+AC_SUBST(CSC)
 AC_SUBST(RUNTIME)
 AC_SUBST(MDASSEMBLER)
 AC_SUBST(MONODOCER)
@@ -46,7 +46,7 @@ AC_OUTPUT([
 	sample/Makefile
 ])
 
-echo "   * $CS compiler: $MCS"
+echo "   * $CS compiler: $CSC"
 echo "   * Documentation build enabled: $enable_monodoc "
 if test "x$enable_monodoc" = "xyes" -a "x$doc_sources_dir" != "x$prefix/lib/monodoc/sources"; then
   echo "      WARNING: The install prefix is different than the monodoc prefix."
