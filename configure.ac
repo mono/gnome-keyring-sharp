@@ -43,7 +43,7 @@ if test "x$ENABLE_DBUS" != "xno" ; then
 	  AC_MSG_ERROR($DBUS_PKG_ERRORS: consider passing --enable-dbus=no to configure)
 	fi
 
-	CSFLAGS=" -d:ENABLE_DBUS "
+	CSFLAGS=" -d:WITH_DBUS "
 fi
 AC_SUBST(CSFLAGS)
 AC_SUBST(DBUS_LIBS)

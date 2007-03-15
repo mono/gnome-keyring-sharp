@@ -1,3 +1,7 @@
+2007-03-15  Alp Toker  <alp@atoker.com>
+
+	* configure.ac: Define WITH_DBUS, not ENABLE_DBUS.
+
 2007-03-14  Alp Toker  <alp@atoker.com>
 
 	* configure.ac:
