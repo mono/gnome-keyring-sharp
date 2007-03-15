@@ -1,5 +1,11 @@
 2007-03-15  Alp Toker  <alp@atoker.com>
 
+	* src/Gnome.Keyring/Ring.cs: Fall back to D-Bus even if the
+	environment variable is set but the connection to that address fails.
+	This matches gnome-keyring behaviour precisely.
+
+2007-03-15  Alp Toker  <alp@atoker.com>
+
 	* configure.ac: Define WITH_DBUS, not ENABLE_DBUS.
 
 2007-03-14  Alp Toker  <alp@atoker.com>
