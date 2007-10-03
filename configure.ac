@@ -27,6 +27,20 @@ if test "x$CSC" = "xno" ; then
 fi
 
 #
+# The GAC tool
+#
+
+AC_PATH_PROG(GACUTIL, gacutil, no)
+if test "x$GACUTIL" = "xno" ; then
+	AC_MSG_ERROR([No gacutil tool found])
+fi
+
+AC_SUBST(GACUTIL)
+
+GACUTIL_FLAGS='/gacdir $(DESTDIR)$(prefix)'
+AC_SUBST(GACUTIL_FLAGS)
+
+#
 # Use D-Bus as a fallback to get the keyring socket address
 #
 AC_ARG_ENABLE(dbus, 

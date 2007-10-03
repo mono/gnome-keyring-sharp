@@ -1,5 +1,9 @@
 SUBDIRS=Gnome.Keyring
 
+ASSEMBLY_NAME=Gnome.Keyring
+ASSEMBLY=$(ASSEMBLY_NAME).dll
+SNK=$(ASSEMBLY_NAME).key
+
 pkgconfigdir=$(libdir)/pkgconfig
 CSFLAGS+= -debug+ -debug:full -nologo -r:Mono.Posix.dll
 
@@ -7,7 +11,7 @@ gnomekeyringdir = $(prefix)/lib/Gnome.Keyring
 pkgconfig_DATA = gnome-keyring-sharp.pc
 gnomekeyring_SCRIPTS = Gnome.Keyring.dll
 
-CLEANFILES = Gnome.Keyring.dll*
+CLEANFILES = $(ASSEMBLY_NAME).*
 
 # 
 gnomekeyring_references = $(DBUS_LIBS)
@@ -31,6 +35,19 @@ gnomekeyring_sources  = \
 
 gnomekeyring_build_sources = $(addprefix $(srcdir)/, $(gnomekeyring_sources)) $(addprefix $(top_builddir)/src/Gnome.Keyring/, AssemblyInfo.cs)
 
-Gnome.Keyring.dll: $(gnomekeyring_build_sources)
+$(ASSEMBLY): $(gnomekeyring_build_sources) $(SNK)
 	$(CSC) $(CSFLAGS) $(gnomekeyring_references) -target:library -out:$@ $(gnomekeyring_build_sources)
+
+$(SNK): $(top_srcdir)/$(SNK)
+	cp $(top_srcdir)/$(SNK) .
+
+### GAC install rules ###
+
+install-data-local:
+	echo "$(GACUTIL) /i $(ASSEMBLY) $(GACUTIL_FLAGS)"; \
+	$(GACUTIL) /i $(ASSEMBLY) $(GACUTIL_FLAGS) || exit 1;
+
+uninstall-local:
+	echo "$(GACUTIL) /u $(ASSEMBLY_NAME) $(GACUTIL_FLAGS)"; \
+	$(GACUTIL) /u $(ASSEMBLY_NAME) $(GACUTIL_FLAGS) || exit 1;
 

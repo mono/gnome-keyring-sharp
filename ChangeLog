@@ -1,3 +1,13 @@
+2007-10-03  Alp Toker  <alp@atoker.com>
+
+	* configure.ac:
+	* Gnome.Keyring.key:
+	* src/Makefile.am:
+	* src/Gnome.Keyring/AssemblyInfo.cs.in:
+	* docs/Makefile.am:
+	* Makefile.am: Make the library installable to the GAC. Based on patches
+	from the OpenSUSE RPM package.
+
 2007-03-15  Alp Toker  <alp@atoker.com>
 
 	* src/Gnome.Keyring/Ring.cs: Fall back to D-Bus even if the
