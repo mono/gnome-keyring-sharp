@@ -1,7 +1,6 @@
-Last updated: 2006-08-01
-
 README for gnome-keyring-sharp
----------------------------
+------------------------------
+
 gnome-keyring-sharp is a fully managed implementation of libgnome-keyring.
 
 When the gnome-keyring-daemon is running, you can use this to retrive/store
@@ -20,5 +19,24 @@ information.
 	src/
 		Source files for the library
 
+D-Bus integration
+-----------------
+
+When the NDesk.DBus library and C# 2.0 build environment is detected,
+gnome-keyring-sharp will be built with D-Bus support.
+
+In this mode of operation, D-Bus is used to determine the socket address
+of the keyring daemon, which can be more reliable than taking the value
+provided in an environment variable (which is still done as a fallback if
+D-Bus is not running).
+
+This optional dependency can be found at http://www.ndesk.org/DBusSharp
+and is widely packaged by distributions.
+
+
 Maintainer: gonzalo@ximian.com
+
+Support is available via the Mono mailing list:
+	http://lists.ximian.com/mailman/listinfo/mono-list
+	mono-list@lists.ximian.com
 

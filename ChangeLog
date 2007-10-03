@@ -1,5 +1,11 @@
 2007-10-03  Alp Toker  <alp@atoker.com>
 
+	* README: Update with an explanation of the recently added D-Bus support,
+	and provide contact/support details (the Mono mailing list).
+	* AUTHORS: Add self.
+
+2007-10-03  Alp Toker  <alp@atoker.com>
+
 	* configure.ac:
 	* Gnome.Keyring.key:
 	* src/Makefile.am:
