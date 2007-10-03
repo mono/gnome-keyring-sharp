@@ -22,12 +22,6 @@ Gnome.Keyring: Gnome.Keyring.tree
 Gnome.Keyring.tree Gnome.Keyring.zip: $(srcdir)/Gnome.Keyring/*.xml $(srcdir)/Gnome.Keyring/*/*.xml
 	mdassembler --ecma $(srcdir)/Gnome.Keyring -o Gnome.Keyring
 
-install-data-hook:
-	cp Gnome.Keyring.* `pkg-config monodoc --variable=sourcesdir`
-
-uninstall-hook:
-	rm -f `pkg-config monodoc --variable=sourcesdir`/Gnome.Keyring.*
-
 update: 
 	$(UPDATER)
 
