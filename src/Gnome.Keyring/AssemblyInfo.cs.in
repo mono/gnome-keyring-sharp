@@ -33,5 +33,5 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyDescription ("")]
 [assembly: AssemblyCopyright ("(c) 2006 Novell, Inc.")]
 [assembly: AssemblyCompany ("Novell, Inc.")]
-[assembly: AssemblyKeyFile ("Gnome.Keyring.key")]
+[assembly: AssemblyKeyFile ("Gnome.Keyring.snk")]
 

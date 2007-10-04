@@ -2,7 +2,7 @@ SUBDIRS=Gnome.Keyring
 
 ASSEMBLY_NAME=Gnome.Keyring
 ASSEMBLY=$(ASSEMBLY_NAME).dll
-SNK=$(ASSEMBLY_NAME).key
+SNK=$(ASSEMBLY_NAME).snk
 
 pkgconfigdir=$(libdir)/pkgconfig
 CSFLAGS+= -debug+ -debug:full -nologo -r:Mono.Posix.dll
