@@ -1,5 +1,9 @@
 2007-10-05  Alp Toker  <alp@atoker.com>
 
+	* src/Gnome.Keyring/AssemblyInfo.cs.in: Add an AssemblyDescription.
+
+2007-10-05  Alp Toker  <alp@atoker.com>
+
 	* src/Gnome.Keyring/AssemblyInfo.cs.in:
 	* src/Makefile.am:
 	* Makefile.am:

@@ -30,7 +30,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: AssemblyVersion("@VERSION@")]
 [assembly: AssemblyTitle ("Gnome.Keyring")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyDescription ("Client library to access the GNOME Keyring daemon")]
 [assembly: AssemblyCopyright ("(c) 2006 Novell, Inc.")]
 [assembly: AssemblyCompany ("Novell, Inc.")]
 [assembly: AssemblyKeyFile ("Gnome.Keyring.snk")]
