@@ -29,6 +29,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 
 [assembly: AssemblyFileVersion("@VERSION@")]
+[assembly: AssemblyInformationalVersion("@VERSION@")]
 [assembly: AssemblyVersion("@API_VERSION@")]
 [assembly: AssemblyTitle ("Gnome.Keyring")]
 [assembly: AssemblyDescription ("Client library to access the GNOME Keyring daemon")]
