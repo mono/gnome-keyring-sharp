@@ -1,8 +1,0 @@
-prefix=@prefix@
-assemblies_dir=${prefix}/lib/Gnome.Keyring
-Libraries=${assemblies_dir}/Gnome.Keyring.dll
- 
-Name: Gnome.Keyring
-Description: Gnome.Keyring.dll - 
-Version: 0.1
-Libs: -r:${assemblies_dir}/Gnome.Keyring.dll

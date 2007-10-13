@@ -2,7 +2,14 @@ dnl configure.ac for Mono.Google library
 AC_PREREQ(2.57)
 AC_INIT(src/Gnome.Keyring/Ring.cs)
 AC_CANONICAL_SYSTEM
-AM_INIT_AUTOMAKE(Gnome.Keyring, 0.1.0)
+
+API_VERSION=1.0
+VERSION=$API_VERSION.0
+
+AC_SUBST(API_VERSION)
+AC_SUBST(VERSION)
+
+AM_INIT_AUTOMAKE(gnome-keyring-sharp, $VERSION)
 AM_MAINTAINER_MODE
 
 AC_PROG_INSTALL
@@ -81,7 +88,7 @@ AC_SUBST(MONODOCER)
 AC_OUTPUT([
 	Makefile
 	src/Makefile
-	src/gnome-keyring-sharp.pc
+	src/gnome-keyring-sharp-1.0.pc
 	src/Gnome.Keyring/Makefile
 	src/Gnome.Keyring/AssemblyInfo.cs
 	docs/Makefile

@@ -7,8 +7,8 @@ SNK=$(ASSEMBLY_NAME).snk
 pkgconfigdir=$(libdir)/pkgconfig
 CSFLAGS+= -debug+ -debug:full -nologo -r:Mono.Posix.dll
 
-gnomekeyringdir = $(prefix)/lib/Gnome.Keyring
-pkgconfig_DATA = gnome-keyring-sharp.pc
+gnomekeyringdir = $(prefix)/lib/gnome-keyring-sharp-1.0
+pkgconfig_DATA = gnome-keyring-sharp-1.0.pc
 gnomekeyring_SCRIPTS = Gnome.Keyring.dll
 
 CLEANFILES = $(ASSEMBLY_NAME).*
@@ -45,9 +45,9 @@ $(SNK): $(top_srcdir)/$(SNK)
 
 install-data-local:
 	echo "$(GACUTIL) /i $(ASSEMBLY) $(GACUTIL_FLAGS)"; \
-	$(GACUTIL) /i $(ASSEMBLY) $(GACUTIL_FLAGS) || exit 1;
+	$(GACUTIL) /i $(ASSEMBLY) /package $(PACKAGE)-$(API_VERSION) $(GACUTIL_FLAGS) || exit 1;
 
 uninstall-local:
 	echo "$(GACUTIL) /u $(ASSEMBLY_NAME) $(GACUTIL_FLAGS)"; \
-	$(GACUTIL) /u $(ASSEMBLY_NAME) $(GACUTIL_FLAGS) || exit 1;
+	$(GACUTIL) /u $(ASSEMBLY_NAME) /package $(PACKAGE)-$(API_VERSION) $(GACUTIL_FLAGS) || exit 1;
 

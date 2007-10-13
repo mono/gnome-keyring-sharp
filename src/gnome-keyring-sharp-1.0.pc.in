@@ -1,0 +1,8 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: Gnome.Keyring
+Description: Client library to access the GNOME Keyring daemon
+Version: @VERSION@
+Libs: -r:${libdir}/mono/@PACKAGE@-@API_VERSION@/Gnome.Keyring.dll
