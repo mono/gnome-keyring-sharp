@@ -1,5 +1,11 @@
 2007-10-13  Alp Toker  <alp@atoker.com>
 
+	* src/Gnome.Keyring/AssemblyInfo.cs.in: Set AssemblyFileVersion to
+	VERSION, and AssemblyVersion to API_VERSION so as not to break
+	backward compatibility on every minor release.
+
+2007-10-13  Alp Toker  <alp@atoker.com>
+
 	* configure.ac:
 	* src/gnome-keyring-sharp-1.0.pc.in:
 	* src/Makefile.am: Provide an API version for the package name.
