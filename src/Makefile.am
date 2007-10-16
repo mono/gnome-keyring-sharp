@@ -7,13 +7,10 @@ SNK=$(ASSEMBLY_NAME).snk
 pkgconfigdir=$(libdir)/pkgconfig
 CSFLAGS+= -debug+ -debug:full -nologo -r:Mono.Posix.dll
 
-gnomekeyringdir = $(prefix)/lib/gnome-keyring-sharp-1.0
 pkgconfig_DATA = gnome-keyring-sharp-1.0.pc
-gnomekeyring_SCRIPTS = Gnome.Keyring.dll
 
 CLEANFILES = $(ASSEMBLY_NAME).*
 
-# 
 gnomekeyring_references = $(DBUS_LIBS)
 
 gnomekeyring_sources  = \
@@ -34,6 +31,8 @@ gnomekeyring_sources  = \
 			Gnome.Keyring/Ring.cs
 
 gnomekeyring_build_sources = $(addprefix $(srcdir)/, $(gnomekeyring_sources)) $(addprefix $(top_builddir)/src/Gnome.Keyring/, AssemblyInfo.cs)
+
+all: $(ASSEMBLY)
 
 $(ASSEMBLY): $(gnomekeyring_build_sources) $(SNK)
 	$(CSC) $(CSFLAGS) $(gnomekeyring_references) -target:library -out:$@ $(gnomekeyring_build_sources)

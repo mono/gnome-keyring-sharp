@@ -1,3 +1,7 @@
+2007-10-17  Alp Toker  <alp@atoker.com>
+
+	* src/Makefile.am: Don't install to $prefix/lib.
+
 2007-10-13  Alp Toker  <alp@atoker.com>
 
 	* src/Gnome.Keyring/AssemblyInfo.cs.in: Set
