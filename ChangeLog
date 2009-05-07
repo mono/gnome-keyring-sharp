@@ -1,3 +1,8 @@
+2009-05-07  Mike Kestner  <mkestner@novell.com>
+
+	* configure.ac: patch to make monodoc build optional from Peter
+	Alfredsen.  [Fixes #469141]
+
 2008-10-14  Sandy Armstrong  <sanfordarmstrong@gmail.com>
 
 	* src/Gnome.Keyring/ResultCode.cs:

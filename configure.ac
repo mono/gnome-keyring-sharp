@@ -51,7 +51,7 @@ AC_SUBST(GACUTIL_FLAGS)
 # Use D-Bus as a fallback to get the keyring socket address
 #
 AC_ARG_ENABLE(dbus, 
-	      [  --enable-dbus[[=no/yes]]    compile with D-Bus support [[default: yes]]],
+	      [AC_HELP_STRING([--enable-dbus],[compile with D-Bus support default: yes])],
 	      ENABLE_DBUS="$enableval")
 AM_CONDITIONAL(ENABLE_DBUS, test "x$ENABLE_DBUS" != "xno")
 
@@ -69,15 +69,25 @@ fi
 AC_SUBST(CSFLAGS)
 AC_SUBST(DBUS_LIBS)
 
+AC_ARG_ENABLE(monodoc, 
+	      [AC_HELP_STRING([--enable-monodoc],[install monodoc documents default: yes])],
+	      [ENABLE_MONODOC="$enableval"])
 
-AC_PATH_PROG(MDASSEMBLER, mdassembler, no)
-AC_PATH_PROG(MONODOCER, monodocer, no)
-if test "x$MONODOCER" = "xno" -o "x$MDASSEMBLER" = "xno"; then
-  enable_monodoc=no
-  doc_sources_dir=
-else
-  enable_monodoc=yes
-  doc_sources_dir="`pkg-config --variable=sourcesdir monodoc`"
+if test "x$ENABLE_MONODOC" != "xno" ; then
+	AC_PATH_PROG(MDASSEMBLER, mdassembler, no)
+	AC_PATH_PROG(MONODOCER, monodocer, no)
+
+	if test "x$MONODOCER" = "xno" -o "x$MDASSEMBLER" = "xno"; then
+		if test "x$ENABLE_MONODOC" = "xyes" ; then
+			AC_MSG_ERROR([monodoc can't be installed even though it was explicitly enabled. mdassembler or monodocer not found.])
+		else
+			enable_monodoc=no
+			doc_sources_dir=
+		fi
+	else
+		enable_monodoc=yes
+		doc_sources_dir="`pkg-config --variable=sourcesdir monodoc`"
+	fi
 fi
 
 AM_CONDITIONAL(ENABLE_MONODOC, test "x$enable_monodoc" = "xyes")
