@@ -1,4 +1,2 @@
-aclocal
-automake -a
-autoconf
+autoreconf -v -i -s
 ./configure $*

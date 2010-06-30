@@ -5,13 +5,13 @@ ASSEMBLY=$(ASSEMBLY_NAME).dll
 SNK=$(ASSEMBLY_NAME).snk
 
 pkgconfigdir=$(libdir)/pkgconfig
-CSFLAGS+= -debug+ -debug:full -nologo -r:Mono.Posix.dll
+CSFLAGS += -debug+ -debug:full -nologo -r:Mono.Posix.dll
 
 pkgconfig_DATA = gnome-keyring-sharp-1.0.pc
 
-CLEANFILES = $(ASSEMBLY_NAME).*
+CLEANFILES = $(ASSEMBLY_NAME).dll $(ASSEMBLY_NAME).dll.mdb $(ASSEMBLY_NAME).snk
 
-gnomekeyring_references = $(DBUS_LIBS)
+gnomekeyring_references = $(GLIB_SHARP_LIBS)
 
 gnomekeyring_sources  = \
 			Gnome.Keyring/AccessRights.cs \
@@ -24,9 +24,6 @@ gnomekeyring_sources  = \
 			Gnome.Keyring/KeyringInfo.cs \
 			Gnome.Keyring/NetItemData.cs \
 			Gnome.Keyring/NoteItemData.cs \
-			Gnome.Keyring/Operation.cs \
-			Gnome.Keyring/RequestMessage.cs \
-			Gnome.Keyring/ResponseMessage.cs \
 			Gnome.Keyring/ResultCode.cs \
 			Gnome.Keyring/Ring.cs
 
@@ -50,3 +47,4 @@ uninstall-local:
 	echo "$(GACUTIL) /u $(ASSEMBLY_NAME) $(GACUTIL_FLAGS)"; \
 	$(GACUTIL) /u $(ASSEMBLY_NAME) /package $(PACKAGE)-$(API_VERSION) $(GACUTIL_FLAGS) || exit 1;
 
+EXTRA_DIST=Gnome.Keyring.dll.config

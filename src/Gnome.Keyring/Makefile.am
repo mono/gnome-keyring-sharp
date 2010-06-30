@@ -10,8 +10,5 @@ EXTRA_DIST=\
 		KeyringInfo.cs \
 		NetItemData.cs \
 		NoteItemData.cs \
-		Operation.cs \
-		RequestMessage.cs \
-		ResponseMessage.cs \
 		ResultCode.cs \
 		Ring.cs

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9C7D12D-2534-4837-BD27-3B328CFC0C4F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>gnomekeyringsharp</RootNamespace>
+    <AssemblyName>gnome-keyring-sharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="src\Gnome.Keyring\AccessRights.cs" />
+    <Compile Include="src\Gnome.Keyring\AttributeType.cs" />
+    <Compile Include="src\Gnome.Keyring\GenericItemData.cs" />
+    <Compile Include="src\Gnome.Keyring\ItemACL.cs" />
+    <Compile Include="src\Gnome.Keyring\ItemData.cs" />
+    <Compile Include="src\Gnome.Keyring\ItemType.cs" />
+    <Compile Include="src\Gnome.Keyring\KeyringException.cs" />
+    <Compile Include="src\Gnome.Keyring\KeyringInfo.cs" />
+    <Compile Include="src\Gnome.Keyring\NetItemData.cs" />
+    <Compile Include="src\Gnome.Keyring\NoteItemData.cs" />
+    <Compile Include="src\Gnome.Keyring\Operation.cs" />
+    <Compile Include="src\Gnome.Keyring\RequestMessage.cs" />
+    <Compile Include="src\Gnome.Keyring\ResponseMessage.cs" />
+    <Compile Include="src\Gnome.Keyring\ResultCode.cs" />
+    <Compile Include="src\Gnome.Keyring\Ring.cs" />
+    <Compile Include="Tests\TestRing.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Gnome.Keyring\AssemblyInfo.cs.in" />
+    <None Include="src\Gnome.Keyring\Makefile.am" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099">
+      <Package>ndesk-dbus-1.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>mono-nunit</Package>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="gnome-keyring-sharp-glue\gnome-keyring-sharp-glue.cproj">
+      <Project>{870C2CD7-985E-48CD-9D22-48AD243819C3}</Project>
+      <Name>gnome-keyring-sharp-glue</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

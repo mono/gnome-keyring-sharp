@@ -1,3 +1,32 @@
+2010-06-30 Gonzalo Paniagua Javier <gonzalo@novell.com>
+
+	* src/Gnome.Keyring/RequestMessage.cs: Removed file.
+	* src/Gnome.Keyring/Operation.cs: Removed file.
+	* src/Gnome.Keyring/ResponseMessage.cs: Removed file.
+
+	* gnome-keyring-sharp-glue:
+	* gnome-keyring-sharp-glue/Makefile.am:
+	* gnome-keyring-sharp-glue/gnome-keyring-sharp-glue.cproj:
+	* gnome-keyring-sharp-glue/glue.c:
+	* gnome-keyring-sharp.sln:
+	* sample/Makefile.am:
+	* gnome-keyring-sharp.csproj:
+	* src/Makefile.am:
+	* src/Gnome.Keyring/Ring.cs:
+	* src/Gnome.Keyring/Makefile.am:
+	* Tests:
+	* Tests/TestRing.cs:
+	* configure.ac:
+	* INSTALL:
+	* Makefile.am:
+	* autogen.sh:
+
+	Patch from Chris Halse Rogers at canonical.com that makes
+	gnome-keyring-sharp work with the latest versions of gnome-keyring (no
+	socket interface). See bug #589166.
+
+	Updated version to 1.0.2 (assembly version is still 1.0.0.0).
+
 2009-05-07  Mike Kestner  <mkestner@novell.com>
 
 	* configure.ac: patch to make monodoc build optional from Peter

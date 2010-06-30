@@ -1,10 +1,12 @@
-dnl configure.ac for Mono.Google library
 AC_PREREQ(2.57)
 AC_INIT(src/Gnome.Keyring/Ring.cs)
 AC_CANONICAL_SYSTEM
 
+AC_PROG_CC
+AC_PROG_LIBTOOL
+
 API_VERSION=1.0
-VERSION=$API_VERSION.1
+VERSION=$API_VERSION.2
 
 AC_SUBST(API_VERSION)
 AC_SUBST(VERSION)
@@ -47,27 +49,14 @@ AC_SUBST(GACUTIL)
 GACUTIL_FLAGS='/gacdir $(DESTDIR)$(prefix)'
 AC_SUBST(GACUTIL_FLAGS)
 
-#
-# Use D-Bus as a fallback to get the keyring socket address
-#
-AC_ARG_ENABLE(dbus, 
-	      [AC_HELP_STRING([--enable-dbus],[compile with D-Bus support default: yes])],
-	      ENABLE_DBUS="$enableval")
-AM_CONDITIONAL(ENABLE_DBUS, test "x$ENABLE_DBUS" != "xno")
 
-CSFLAGS=
-DBUS_LIBS=
-if test "x$ENABLE_DBUS" != "xno" ; then
-	PKG_CHECK_MODULES(DBUS, ndesk-dbus-1.0 >= 0.4, HAVE_DBUS="yes", HAVE_DBUS="no")
+PKG_CHECK_MODULES(GLIB_SHARP, [glib-sharp-2.0])
+PKG_CHECK_MODULES(GNOME_KEYRING, [gnome-keyring-1])
 
-	if test "x$HAVE_DBUS" = "xno"; then
-	  AC_MSG_ERROR($DBUS_PKG_ERRORS: consider passing --enable-dbus=no to configure)
-	fi
-
-	CSFLAGS=" -d:WITH_DBUS "
-fi
 AC_SUBST(CSFLAGS)
-AC_SUBST(DBUS_LIBS)
+AC_SUBST(GLIB_SHARP_LIBS)
+AC_SUBST(GNOME_KEYRING_CFLAGS)
+AC_SUBST(GNOME_KEYRING_LIBS)
 
 AC_ARG_ENABLE(monodoc, 
 	      [AC_HELP_STRING([--enable-monodoc],[install monodoc documents default: yes])],
@@ -101,6 +90,7 @@ AC_OUTPUT([
 	src/gnome-keyring-sharp-1.0.pc
 	src/Gnome.Keyring/Makefile
 	src/Gnome.Keyring/AssemblyInfo.cs
+	gnome-keyring-sharp-glue/Makefile
 	docs/Makefile
 	sample/Makefile
 ])
